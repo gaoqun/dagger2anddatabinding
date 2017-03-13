@@ -46,10 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="20dp"
-            android:text="@{user.password,default=123456}"
+            android:text="@{user.password,default=列表}"
             android:onClick="@{(view)->passwordPresenter.passwordClick(view,user)}"
             />
-        <!--android:onClick="@{(view)->passwordPresenter.passwordClick(view,user)}"-->
     </LinearLayout>
 
 </layout>

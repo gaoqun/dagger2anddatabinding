@@ -1,14 +1,17 @@
 package testdagger.gaige.com.testdagger2.main;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import testdagger.gaige.com.testdagger2.ListViewsActivity;
 import testdagger.gaige.com.testdagger2.R;
 import testdagger.gaige.com.testdagger2.base.BaseActivity;
 import testdagger.gaige.com.testdagger2.bean.User;
 import testdagger.gaige.com.testdagger2.databinding.ActivityMainBinding;
+import testdagger.gaige.com.testdagger2.main.MainPresenter;
 
 /**
  * Created by asus on 2017-03-11 09:15.
@@ -16,7 +19,6 @@ import testdagger.gaige.com.testdagger2.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity implements MainPresenter {
     private User user;
-    private Thread thread;
     private ActivityMainBinding activityMainBinding;
 
     @Override
@@ -36,23 +38,9 @@ public class MainActivity extends BaseActivity implements MainPresenter {
 
     @Override
     public void passwordClick(View view, User user) {
-        if (thread == null) {
-            thread = new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    while (true) {
-                        user.setUserName("zhangsan" + System.currentTimeMillis());
-                        activityMainBinding.setUser(user);
-                        try {
-                            Thread.sleep(1000);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-        }
-        thread.start();
+
+        Intent intent = new Intent(this, ListViewsActivity.class);
+        startActivity(intent);
 
     }
 }
