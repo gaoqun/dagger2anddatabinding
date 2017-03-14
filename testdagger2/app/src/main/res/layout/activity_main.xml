@@ -4,14 +4,9 @@
     <data>
 
         <variable
-            name="user"
-            type="testdagger.gaige.com.testdagger2.bean.User" />
-
-        <variable
             name="passwordPresenter"
-            type="testdagger.gaige.com.testdagger2.main.MainPresenter"/>
+            type="testdagger.gaige.com.testdagger2.main.MainPresenter" />
 
-        <import type="java.lang.String" />
     </data>
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -26,29 +21,15 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="testdagger.gaige.com.testdagger2.main.MainActivity">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.userName,default=zhangsan}"
-            />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{String.valueOf(user.age),default=90}" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{user.sex==0?@string/women:@string/man}" />
-
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="@{(view)->passwordPresenter.passwordClick(view)}"
             android:padding="20dp"
-            android:text="@{user.password,default=列表}"
-            android:onClick="@{(view)->passwordPresenter.passwordClick(view,user)}"
-            />
+            android:text="列表"
+            android:textSize="16sp"
+            android:textColor="@color/colorAccent"
+            android:id="@+id/listType"/>
     </LinearLayout>
 
 </layout>

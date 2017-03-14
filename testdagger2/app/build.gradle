@@ -50,4 +50,5 @@ dependencies {
     apt 'com.google.dagger:dagger-compiler:2.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
     compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.8.6'
 }

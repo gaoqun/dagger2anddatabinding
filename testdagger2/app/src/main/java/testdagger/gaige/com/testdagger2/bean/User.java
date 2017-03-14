@@ -1,7 +1,10 @@
 package testdagger.gaige.com.testdagger2.bean;
 
+import android.databinding.Bindable;
 import android.databinding.Observable;
 import android.databinding.PropertyChangeRegistry;
+
+import com.android.databinding.library.baseAdapters.BR;
 
 /**
  * Created by asus on 2017-03-11 09:42.
@@ -9,6 +12,7 @@ import android.databinding.PropertyChangeRegistry;
 
 public class User implements Observable {
 
+    @Bindable
     private String userName;
 
     private String password;
@@ -24,38 +28,27 @@ public class User implements Observable {
         this.sex = sex;
     }
 
+    public void setUserName(String userName) {
+        this.userName = userName;
+        callback.notifyChange(this, BR.userName);
+    }
+
     private PropertyChangeRegistry callback = new PropertyChangeRegistry();
 
     public int getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
-        this.sex = sex;
-    }
-
     public String getUserName() {
         return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public int getAge() {
         return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     @Override

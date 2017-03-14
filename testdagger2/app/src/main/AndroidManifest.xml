@@ -9,7 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".main.MainActivity">
+        <activity android:name=".main.MainActivity"
+            android:label="choose view type"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,8 +21,9 @@
 
 
         <activity
-            android:name=".ListViewsActivity"
-            android:screenOrientation="portrait" />
+            android:name=".list.ListViewsActivity"
+            android:screenOrientation="portrait"
+            android:label="list view type"/>
     </application>
 
 </manifest>

@@ -10,5 +10,5 @@ import testdagger.gaige.com.testdagger2.bean.User;
 
 public interface MainPresenter {
 
-    void passwordClick(View view, User user);
+    void passwordClick(View view);
 }
