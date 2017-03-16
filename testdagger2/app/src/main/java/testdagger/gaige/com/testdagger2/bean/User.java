@@ -6,6 +6,8 @@ import android.databinding.PropertyChangeRegistry;
 
 import com.android.databinding.library.baseAdapters.BR;
 
+import javax.inject.Inject;
+
 /**
  * Created by asus on 2017-03-11 09:42.
  */
@@ -28,6 +30,9 @@ public class User implements Observable {
         this.sex = sex;
     }
 
+    @Inject
+    public User(){}
+
     public void setUserName(String userName) {
         this.userName = userName;
         callback.notifyChange(this, BR.userName);
@@ -40,7 +45,7 @@ public class User implements Observable {
     }
 
     public String getUserName() {
-        return userName;
+        return userName==null?"null":userName;
     }
 
     public String getPassword() {

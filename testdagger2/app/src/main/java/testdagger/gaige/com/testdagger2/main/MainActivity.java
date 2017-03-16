@@ -5,11 +5,16 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Toast;
 
-import testdagger.gaige.com.testdagger2.list.ListViewsActivity;
+import javax.inject.Inject;
+
 import testdagger.gaige.com.testdagger2.R;
+import testdagger.gaige.com.testdagger2.Type;
 import testdagger.gaige.com.testdagger2.base.BaseActivity;
+import testdagger.gaige.com.testdagger2.bean.User;
 import testdagger.gaige.com.testdagger2.databinding.ActivityMainBinding;
+import testdagger.gaige.com.testdagger2.list.ListViewsActivity;
 
 /**
  * Created by asus on 2017-03-11 09:15.
@@ -18,10 +23,16 @@ import testdagger.gaige.com.testdagger2.databinding.ActivityMainBinding;
 public class MainActivity extends BaseActivity implements MainPresenter {
     private ActivityMainBinding activityMainBinding;
 
+    @Type("lisi")
+    @Inject
+    User user;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DaggerMainComponent.create().inject(this);
+        Toast.makeText(this, user.getUserName(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
