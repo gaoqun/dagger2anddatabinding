@@ -30,7 +30,6 @@ public class User implements Observable {
         this.sex = sex;
     }
 
-    @Inject
     public User(){}
 
     public void setUserName(String userName) {
