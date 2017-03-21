@@ -28,9 +28,8 @@ import testdagger.gaige.com.testdagger2.databinding.ContentSelectPicturesBinding
 public class SelectPictures extends BaseActivity implements PhotoClickListener {
     private ContentSelectPicturesBinding contentSelectPicturesBinding;
     private static final String TAG = "SelectPictures";
-    private static final int REQUEST_CODE1 = 0X00000001;
-    private static final int REQUEST_CODE2 = 0X00000011;
-    private static final int RESULT_CODE = 0X00000010;
+    private static final int REQUEST_CODE1 = 0X00000100;
+    private static final int REQUEST_CODE2 = 0X00000101;
     private Uri imageUri;
     private SimpleDateFormat format = new SimpleDateFormat(
             "yyyy-MM-dd-HH-mm-ss-SSS");
