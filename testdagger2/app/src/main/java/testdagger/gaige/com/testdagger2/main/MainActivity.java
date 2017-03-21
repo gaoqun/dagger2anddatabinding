@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import testdagger.gaige.com.testdagger2.base.BaseActivity;
 import testdagger.gaige.com.testdagger2.bean.User;
 import testdagger.gaige.com.testdagger2.databinding.ActivityMainBinding;
 import testdagger.gaige.com.testdagger2.list.ListViewsActivity;
+import testdagger.gaige.com.testdagger2.photoesLoader.SelectPictures;
 
 /**
  * Created by asus on 2017-03-11 09:15.
@@ -47,6 +49,17 @@ public class MainActivity extends BaseActivity implements MainPresenter {
     public void passwordClick(View view) {
         Intent intent = new Intent(this, ListViewsActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    public void clickGesture(View view) {
+        startActivity(new Intent(this,GestureActivity.class));
+    }
+
+    @Override
+    public void clickAlbumAndTakePhotoes(View view) {
+        Log.d("album/photo","clickAlbumAndTakePhotoes...");
+        startActivity(new Intent(this, SelectPictures.class));
     }
 
 

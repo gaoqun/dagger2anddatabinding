@@ -11,4 +11,9 @@ import testdagger.gaige.com.testdagger2.bean.User;
 public interface MainPresenter {
 
     void passwordClick(View view);
+
+    void clickGesture(View view);
+
+    void clickAlbumAndTakePhotoes(View view);
+
 }

@@ -3,4 +3,5 @@
     <string name="man">男</string>
     <string name="women">女</string>
     <string name="type1">列表</string>
+    <string name="title_activity_select_pictures">SelectPictures</string>
 </resources>
