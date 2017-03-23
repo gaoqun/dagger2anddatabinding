@@ -1,13 +1,18 @@
 package testdagger.gaige.com.testdagger2.cards;
 
 import android.graphics.Canvas;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -49,16 +54,22 @@ public class CardsActivity extends BaseActivity {
         recyclerView.setLayoutManager(new MyLayoutManager(itemWidth));
         if (adapter == null) {
             adapter = new BaseQuickAdapter<String, BaseViewHolder>(R.layout.item_card, list) {
+                @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
                 @Override
                 protected void convert(final BaseViewHolder helper, String item) {
+
                     ImageView imageView = (ImageView) helper.getView(R.id.tv_card);
-                    helper.setText(R.id.tv_card1,list.indexOf(item)+"");
-                    Glide.with(CardsActivity.this)
-                            .load(item)
-                            .crossFade()
-                            .centerCrop()
-                            .override((int) itemWidth, (int) (0.75f * itemWidth))
-                            .into(imageView);
+                    if(item.endsWith("2.jpg")){
+                        imageView.setBackground(ContextCompat.getDrawable(CardsActivity.this,R.drawable.bg));
+                    }else if(item.endsWith("4.jpg")){
+                        imageView.setBackground(ContextCompat.getDrawable(CardsActivity.this,R.drawable.bg1));
+                    }else {
+                        imageView.setBackground(ContextCompat.getDrawable(CardsActivity.this,R.drawable.bg2));
+                    }
+                    LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+                    layoutParams.width = (int) itemWidth;
+                    layoutParams.height = (int) (0.75f * itemWidth);
+                    imageView.setLayoutParams(layoutParams);
                 }
             };
             recyclerView.setAdapter(adapter);
