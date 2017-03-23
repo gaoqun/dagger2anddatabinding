@@ -35,6 +35,10 @@
             android:name=".photoesLoader.SelectPictures"
             android:label="select pictures"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".cards.CardsActivity"
+            android:label="cards"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>

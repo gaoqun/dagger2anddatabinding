@@ -14,6 +14,7 @@ import testdagger.gaige.com.testdagger2.R;
 import testdagger.gaige.com.testdagger2.Type;
 import testdagger.gaige.com.testdagger2.base.BaseActivity;
 import testdagger.gaige.com.testdagger2.bean.User;
+import testdagger.gaige.com.testdagger2.cards.CardsActivity;
 import testdagger.gaige.com.testdagger2.databinding.ActivityMainBinding;
 import testdagger.gaige.com.testdagger2.list.ListViewsActivity;
 import testdagger.gaige.com.testdagger2.photoesLoader.SelectPictures;
@@ -58,8 +59,12 @@ public class MainActivity extends BaseActivity implements MainPresenter {
 
     @Override
     public void clickAlbumAndTakePhotoes(View view) {
-        Log.d("album/photo","clickAlbumAndTakePhotoes...");
         startActivity(new Intent(this, SelectPictures.class));
+    }
+
+    @Override
+    public void clickCards() {
+        startActivity(new Intent(this,CardsActivity.class));
     }
 
 

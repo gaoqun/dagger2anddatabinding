@@ -16,4 +16,6 @@ public interface MainPresenter {
 
     void clickAlbumAndTakePhotoes(View view);
 
+    void clickCards();
+
 }
